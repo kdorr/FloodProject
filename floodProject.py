@@ -17,25 +17,17 @@ for line in foreclosures:
 foreclosures.close()
 
 #read flood data
-ids, county, date, eventType, deaths, injuries, propertyDamage = ([] for i in range(7))
-#floods
-floods = [ids, county, date, eventType, deaths, injuries, propertyDamage]
-with open('storm_data_search_results_dallas.csv') as floodFile:
-    reader = csv.DictReader(floodFile)
-    for row in reader:
-        ids.append(row['EVENT_ID'])
-        county.append(row['CZ_NAME_STR'])
-        date.append(row['BEGIN_DATE'])
-        eventType.append(row['EVENT_TYPE'])
-        deaths.append(row['DEATHS_DIRECT'])
-        injuries.append(row['INJURIES_DIRECT'])
-        propertyDamage.append(row['DAMAGE_PROPERTY_NUM'])
+floodsArray = []
+floodsFile = open('storm_data_search_results_dallas.csv', "r")
+for line in floodsFile:
+    floodsArray.append(line.strip().split(','))
+floodsFile.close()   
         
 #format date from flood data
-month = floods[2][0].split('/')[0]
-year = floods[2][0].split('/')[2]
+#floodsArray[1][3] is the flood date of the first flood listed for Dallas County
+month = floodsArray[1][3].split('/')[0]
+year = floodsArray[1][3].split('/')[2]
 individualDate = year + '-' + month
-print(individualDate)
 
 def locateForeclosureDate(date):
     for i in range(len(foreclosuresArray[0])):
@@ -52,7 +44,9 @@ def getForeclosureData(index):
 yVals = getForeclosureData(locateForeclosureDate(individualDate))
 print(yVals)
 
+#select dates for x-axis
 datesGraph = [0, 1, 2, 3, 4, 5]
+
 #Plot on graph
 xs = [i for i, _ in enumerate(datesGraph)]
 plt.plot(xs, yVals, 'g-', label='May 2011')
