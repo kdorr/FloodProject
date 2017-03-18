@@ -40,6 +40,7 @@ def convertDate(floodDate):
 numMonths = 14 #the number of months to look at (to be used in zero-indexed things)
 numFloods = 25 #the number of floods to look at
 allDates = [] #an array containing the dates of all floods
+
 #populate allDates with the dates of all floods in floodsArray from the first entry to numFloods
 for i in range(1,numFloods+1):
     allDates.append(convertDate(floodsArray[i][3]))
@@ -50,6 +51,7 @@ def locateForeclosureDate(date):
         if foreclosuresArray[0][int(i)] == date:
             return i
 
+#find the index of the flood date in the foreclosure data
 def getForeclosureData(index):
     lst = []
     for j in range(numMonths):
