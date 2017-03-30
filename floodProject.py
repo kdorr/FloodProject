@@ -59,20 +59,31 @@ dallasChangeList = list(dallasChangeForeclosures.values())
 # Linear regression:
 # Need to eventually move into function
 #==============================================================================
-x = []
-y = []
-for i in range(len(dallasChangeList)):
-    for j in range(len(dallasChangeList[i])):
-        y.append(dallasChangeList[i][j])
-        x.append(j)
+def regressionLine(x,y):
+    slope, intercept, r_value, p_value, std_err = stats.linregress(x, y)
+    #y=intercept+slope(x)
+    #y=0.069997-0.0112x
+    #==============================================================================
+    # x = [0, 1, 2, 3, 4, 5, ... , 11]
+    # y = [0.07-0.01(0), 0.07-0.01(1), ..., 0.07-0.01(11)]
+    #==============================================================================
+    print("slope")
+    print(slope)
+    print(intercept)
+    return(slope,intercept)
+def returnLine(changeList):
+    x = []
+    y = []
+    regline = []
+    for i in range(len(changeList)):
+        for j in range(len(changeList[i])):
+            y.append(changeList[i][j])
+            x.append(j)
+    slope, intercept = regressionLine(x,y)
+    for i in range(numMonths):
+        regline.append(intercept+(slope*i))
+    return (regline)
+regline=returnLine(dallasChangeList)
+plt.plot(regline)
+plt.show()
 
-slope, intercept, r_value, p_value, std_err = stats.linregress(x, y)
-#y=intercept+slope(x)
-#y=0.069997-0.0112x
-#==============================================================================
-# x = [0, 1, 2, 3, 4, 5, ... , 11]
-# y = [0.07-0.01(0), 0.07-0.01(1), ..., 0.07-0.01(11)]
-#==============================================================================
-print("slope")
-print(slope)
-print(intercept)

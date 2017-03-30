@@ -26,6 +26,9 @@ def numForeclosuresPerMonth(floodForeclosures, numMonths, county):
     ax = plt.gca()
     ax.set_autoscale_on(False)
     #plt.legend(loc='best', ncol=4, fontsize='small')
+
+
+
     
     plt.show()
     
@@ -44,6 +47,7 @@ def changeForeclosures(floodForeclosures, numMonths, county):
     plt.xlabel("Month")
     plt.ylabel("Number of Forclosures per 10000 Homes")
     plt.axis([0, numMonths-1, -3, getMaximumY(floodForeclosures)])
+    plt.plot()
     #plt.axis([0, numMonths-1, -5, 5])
     ax = plt.gca()
     ax.set_autoscale_on(False)
