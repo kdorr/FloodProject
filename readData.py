@@ -19,12 +19,7 @@ def foreclosureDataPerFlood(floodFile, foreclosureFile, numMonths):
     
     #Delete duplicate dates
     datesList = deleteDuplicates(datesList)
-#==============================================================================
-#     print("dates")
-#     print(datesList)
-#     print("end dates")
-#==============================================================================
-    #print(foreclosureList)
+    
     #Find dates in foreclosureFile, return a list of indicies?
     indices = getForeclosureIndices(foreclosureList, datesList)
     
@@ -98,8 +93,6 @@ def getForeclosureIndices(foreclosureList, datesList):
         for j in range(len(foreclosureList[0])):
             if foreclosureList[0][j] == datesList[i]:
                 indices.append(j)
-    #print("indices")
-    #print(indices)
     return indices
 
 #returns a list that has a list containing the foreclosure numbers for each flood
@@ -123,12 +116,7 @@ def getFloodForeclosureList(foreclosureList, indices, numMonths, county):
 #returns a dict containing the date of the flood with its foreclosure data.
 #Rather than a list, a dict will allow us to filter our list by year/month if we want to.
 def populateDict(dates, foreclosures):
-    #print(len(foreclosures))
     mydict = {}
-    #print("dates")
-    #print(dates)
-    #print("foreclosures")
-   # print(foreclosures)
     for i in range(len(foreclosures)):
         try:
             mydict[dates[i]] = foreclosures[i]
