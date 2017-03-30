@@ -19,13 +19,18 @@ def foreclosureDataPerFlood(floodFile, foreclosureFile, numMonths):
     
     #Delete duplicate dates
     datesList = deleteDuplicates(datesList)
-    #print(datesList)
-    
+#==============================================================================
+#     print("dates")
+#     print(datesList)
+#     print("end dates")
+#==============================================================================
+    #print(foreclosureList)
     #Find dates in foreclosureFile, return a list of indicies?
     indices = getForeclosureIndices(foreclosureList, datesList)
     
     #Grab foreclosure info for each flood
     floodForeclosureList = getFloodForeclosureList(foreclosureList, indices, numMonths, county)
+    #return floodForeclosureList
     
     #create dict and return it
     return populateDict(datesList, floodForeclosureList) 
@@ -63,6 +68,8 @@ def getCounty(floodList, foreclosureList):
 #floodsArray[1][3] is the flood date of the first flood listed
 def convertDate(floodDate):
     month = floodDate.split('/')[0]
+    if int(month) < 10:
+        month = "0" + month
     year = floodDate.split('/')[2]   
     return year + '-' + month
 
@@ -85,10 +92,14 @@ def deleteDuplicates(datesList):
 #where each flood date in datesList is located
 def getForeclosureIndices(foreclosureList, datesList):
     indices = []
+#len(datesList) = 64
     for i in range(len(datesList)):
+        
         for j in range(len(foreclosureList[0])):
             if foreclosureList[0][j] == datesList[i]:
                 indices.append(j)
+    #print("indices")
+    #print(indices)
     return indices
 
 #returns a list that has a list containing the foreclosure numbers for each flood
@@ -114,6 +125,10 @@ def getFloodForeclosureList(foreclosureList, indices, numMonths, county):
 def populateDict(dates, foreclosures):
     #print(len(foreclosures))
     mydict = {}
+    #print("dates")
+    #print(dates)
+    #print("foreclosures")
+   # print(foreclosures)
     for i in range(len(foreclosures)):
         try:
             mydict[dates[i]] = foreclosures[i]

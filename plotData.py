@@ -9,7 +9,7 @@ from matplotlib import pyplot as plt
 #plot the number of foreclosures per month after floods
 def numForeclosuresPerMonth(floodForeclosures, numMonths, county):
     #select dates for x-axis
-    datesGraph = [x for x in range(numMonths)]
+    datesGraph = [x for x in range(numMonths-1)]
 
     #Plot on graph
     xs = [i for i, _ in enumerate(datesGraph)]
@@ -21,10 +21,33 @@ def numForeclosuresPerMonth(floodForeclosures, numMonths, county):
     plt.title("Number of Foreclosures per 10000 Homes in " + county + " County after Flood")
     plt.xlabel("Month")
     plt.ylabel("Number of Forclosures per 10000 Homes")
-    plt.axis([0, numMonths-1, 0, getMaximumY(floodForeclosures)])
+    plt.axis([0, numMonths-1, -3, getMaximumY(floodForeclosures)])
+    #plt.axis([0, numMonths-1, -5, 5])
     ax = plt.gca()
     ax.set_autoscale_on(False)
-    plt.legend(loc='best', ncol=4, fontsize='small')
+    #plt.legend(loc='best', ncol=4, fontsize='small')
+    
+    plt.show()
+    
+def changeForeclosures(floodForeclosures, numMonths, county):
+    #select dates for x-axis
+    datesGraph = [x for x in range(numMonths-1)]
+
+    #Plot on graph
+    xs = [i for i, _ in enumerate(datesGraph)]
+    
+    for k, v in floodForeclosures.items():
+        plt.scatter(xs, v, label=k)
+    
+    #Title, legend, and axis labels
+    plt.title("Number of Foreclosures per 10000 Homes in " + county + " County after Flood")
+    plt.xlabel("Month")
+    plt.ylabel("Number of Forclosures per 10000 Homes")
+    plt.axis([0, numMonths-1, -3, getMaximumY(floodForeclosures)])
+    #plt.axis([0, numMonths-1, -5, 5])
+    ax = plt.gca()
+    ax.set_autoscale_on(False)
+    #plt.legend(loc='best', ncol=4, fontsize='small')
     
     plt.show()
 
