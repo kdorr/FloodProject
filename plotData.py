@@ -83,6 +83,8 @@ def regressionLine(x,y):
     print("slope")
     print(slope)
     print(intercept)
+    print(r_value)
+    print(r_value*r_value)
     return(slope,intercept)
 def returnLine(changeList,numMonths):
     x = []
