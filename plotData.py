@@ -23,7 +23,7 @@ def numForeclosuresPerMonth(floodForeclosures, numMonths, county):
     #Title, legend, and axis labels
     plt.title("Number of Foreclosures per 10000 Homes in " + county + " County after Flood")
     plt.xlabel("Month")
-    plt.ylabel("Number of Forclosures per 10000 Homes")
+    plt.ylabel("Number of Foreclosures per 10000 Homes")
     plt.axis([0, numMonths-1, -3, getMaximumY(floodForeclosures)])
     #plt.axis([0, numMonths-1, -5, 5])
     ax = plt.gca()
