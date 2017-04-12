@@ -18,7 +18,7 @@ def averageIndividual(floodForeclosures):
         tempList = []
         for i in range(len(v)-1):
             #tempList.append(str(round(float(v[i+1])-float(v[i]), 4)))
-            tempList.append(round(float(v[i+1])-float(v[i]), 4))
+            tempList.append(round(float(v[i+1])-float(v[0]), 4))
         #avgList.append(tempList)
         avgList[k] = tempList
     #print(avgList)
