@@ -18,6 +18,8 @@ dallasTroubleshoot = readData.dallasTroubleshoot('dallasRemoveMostduplicates.csv
 
 numMonths = 13 #the number of months to look at. Will show numMonths-1 months after the flood.
 
+plotData.bokehGraph()
+
 #==============================================================================
 # Note: I haven't figured out how to plot each county on a separate graph, so 
 # only plot one county at a time.
