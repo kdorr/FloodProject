@@ -14,7 +14,7 @@ import analyze
 from scipy import stats
 
 #for troubleshooting purposes. There is a bug where not all dates are being utilized
-dallasTroubleshoot = readData.dallasTroubleshoot('dallasRemoveMostduplicates.csv')
+#dallasTroubleshoot = readData.dallasTroubleshoot('dallasRemoveMostduplicates.csv')
 
 numMonths = 13 #the number of months to look at. Will show numMonths-1 months after the flood.
 
