@@ -8,6 +8,27 @@ from matplotlib import pyplot as plt
 from scipy import stats
 import analyze
 import readData
+from bokeh.plotting import figure
+from bokeh.io import output_file, show
+
+#overall graph
+def bokehGraph():
+    foreclosures = readData.read('TestForeclosures.csv')
+    x = []
+    y = []
+    for i in range(len(foreclosures[0])):
+        if(i>1):
+            #x.append(foreclosures[0][i])
+            y.append(foreclosures[1][i])
+
+    x = [x for x in range(len(y))]
+    p = figure(x_axis_label='months', y_axis_label='number of foreclosures')
+    p.line(x, y)
+    #p.patches(x, y)
+    #name of out file
+    output_file('bokehGraph.html')
+    #display
+    show(p)
 
 #plot the number of foreclosures per month after floods
 def numForeclosuresPerMonth(floodForeclosures, numMonths, county):
