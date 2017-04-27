@@ -44,7 +44,7 @@ def changeForeclosures(floodForeclosures, numMonths, county):
     xs = [i for i, _ in enumerate(datesGraph)]
     
     for k, v in changedList.items():
-        plt.scatter(xs, v, label=k)
+        plt.plot(xs, v, label=k)
     
     #Title, legend, and axis labels
     plt.title("Number of Foreclosures per 10000 Homes in " + county + " County after Flood")
