@@ -10,10 +10,18 @@ floods = pd.read_csv(floodFile, parse_dates=['BEGIN_DATE'], date_parser=datepars
 cleanFloods = floods[['CZ_NAME_STR', 'BEGIN_DATE', 'EVENT_TYPE', 'DAMAGE_PROPERTY_NUM']]
 cleanFloods = cleanFloods.drop_duplicates()
 
+#accessor function
+def getFloods():
+    return cleanFloods
+
 #read foreclosure data
 foreclosureFile = "ForeclosuresTransposed.csv"
 dateparse = lambda x: pd.datetime.strptime(x, '%Y-%m')
 foreclosures = pd.read_csv(foreclosureFile, parse_dates=['Date'], date_parser=dateparse)
+
+#accessor function
+def getForeclosures():
+    return foreclosures
 
 #create plot
 p = figure(x_axis_type="datetime", x_axis_label='dates', y_axis_label='number of foreclosures')
