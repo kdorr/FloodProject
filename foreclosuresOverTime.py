@@ -1,3 +1,5 @@
+#foreclosuresOverTime.py
+
 import pandas as pd
 from bokeh.plotting import figure, output_file, show
 
@@ -37,9 +39,10 @@ for i in range(len(cleanFloods)):
     for j in range(len(foreclosures)):
         if(date.month == foreclosures.Date.iloc[j].month and date.year == foreclosures.Date.iloc[j].year):
             fcl = foreclosures.Dallas.iloc[j]
+            break
     y=[fcl-1,fcl+1]
     p.circle(x,fcl, color='blue')
 
 #output file and show
-output_file("bokeh2.html")
-show(p)
+#output_file("bokeh2.html")
+#show(p)
