@@ -20,8 +20,15 @@ numMonths = 18
 #instiantiate lists that will hold all x-values and all y-values
 allXs = []
 allYs = []
+resultsList = []
 
 #for each flood, plot number of foreclosures - number of foreclosures during initial month
+def singleRegression(xs, ys):
+    xReg = np.vander(xs, 2)
+    results = sm.OLS(ys, xReg).fit()
+    return results
+
+
 for i in range(len(floods)):
     date = floods.BEGIN_DATE.iloc[i]
     #recreate list for x-values and y-values
@@ -43,11 +50,16 @@ for i in range(len(floods)):
         ys.append(y)
 
     p.circle(xs,ys)
+    results = singleRegression(xs, ys)
+    resultsList.append(results)
+
+
 
 #run linear regression model
 xReg = np.vander(allXs, 2)
 results = sm.OLS(allYs,xReg).fit()
-print(results.summary())
+#print(type(results))
+#print(results.summary())
 
 #plot regression model on graph
 regLineX = range(0,numMonths)
@@ -59,4 +71,6 @@ p.line(regLineX, regLineY, color='green')
 
 #output and show plot
 output_file("normalizedPlot.html")
-show(p)
+#show(p)
+
+
