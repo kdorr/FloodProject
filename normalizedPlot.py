@@ -71,6 +71,6 @@ p.line(regLineX, regLineY, color='green')
 
 #output and show plot
 output_file("normalizedPlot.html")
-show(p)
+#show(p)
 
 
