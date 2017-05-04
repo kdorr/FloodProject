@@ -12,31 +12,36 @@ results=normal.resultsList
 print(results[0].summary())
 regY=[]
 #getY = lambda r: -0.0348*r + 0.1834
-print(results[0])
-print(results[0].params)
-print(len(results))
 for i in range(len(results)):
-    print(i)
     getY = lambda res: (results[i].params[0] * res) + results[i].params[1]
     for j in range(len(testXs)):
         regY.append(getY(j))
-plt.line(allXs, regY)
+plt.circle(allXs, regY)
 
 df = pd.DataFrame({"x" : allXs, "y" : regY})
-print(df)
+#print(df)
 
-#finalRegY = []
-Yx = df(x=0)
-for q in range(len(df['y'])):
-    for w in range(18):
-        if(df['y'] == w):
+finalRegY = []
+yCounter=0
+ySum=0
+for w in range(18):
+    ySum=0
+    for q in range(len(df.x)):
+        if(df.x.iloc[q] == w):
+            ySum+=df.x.iloc[q]
+            yCounter+=1
+
+    ySum=ySum/yCounter
+    finalRegY.append(ySum)
+plt.line(testXs, finalRegY, color='green')
+regOfReg=normal.singleRegression(testXs,finalRegY)
+lastY=[]
 
 
-#finalReg=0
-#for i in (regY):
-#    finalReg=regY[i]+finalReg
-#finalReg=finalReg/len(regY)
-#print(finalReg)
+plt.line(testXs,lastY)
+print(len(lastY))
+print(regOfReg.summary())
+
 
 
 
