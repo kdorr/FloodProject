@@ -1,5 +1,6 @@
 import normalizedPlot as normal
 from bokeh.plotting import figure, output_file, show
+import pandas as pd
 import statsmodels.api as sm
 
 plt = figure(x_axis_label='months since flood', y_axis_label='change number of foreclosures since flood')
@@ -21,11 +22,21 @@ for i in range(len(results)):
         regY.append(getY(j))
 plt.line(allXs, regY)
 
-finalReg=0
-for i in (regY):
-    finalReg=regY[i]+finalReg
-finalReg=finalReg/len(regY)
-print(finalReg)
+df = pd.DataFrame({"x" : allXs, "y" : regY})
+print(df)
+
+#finalRegY = []
+Yx = df(x=0)
+for q in range(len(df['y'])):
+    for w in range(18):
+        if(df['y'] == w):
+
+
+#finalReg=0
+#for i in (regY):
+#    finalReg=regY[i]+finalReg
+#finalReg=finalReg/len(regY)
+#print(finalReg)
 
 
 
