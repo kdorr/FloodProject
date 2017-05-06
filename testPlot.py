@@ -16,7 +16,7 @@ for i in range(len(results)):
     getY = lambda res: (results[i].params[0] * res) + results[i].params[1]
     for j in range(len(testXs)):
         regY.append(getY(j))
-plt.circle(allXs, regY)
+plt.line(allXs, regY)
 
 df = pd.DataFrame({"x" : allXs, "y" : regY})
 #print(df)
@@ -33,7 +33,7 @@ for w in range(18):
 
     ySum=ySum/yCounter
     finalRegY.append(ySum)
-plt.line(testXs, finalRegY, color='green')
+#plt.line(testXs, finalRegY, color='green')
 regOfReg=normal.singleRegression(testXs,finalRegY)
 lastY=[]
 

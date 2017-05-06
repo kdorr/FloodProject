@@ -50,7 +50,7 @@ for i in range(len(floods)):
                 allYs.append(y)
         ys.append(y)
 
-    p.circle(xs,ys)
+    #p.circle(xs,ys)
     results = singleRegression(xs, ys)
     resultsList.append(results)
 
