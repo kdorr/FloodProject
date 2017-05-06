@@ -2,19 +2,16 @@
 
 import pandas as pd
 from bokeh.plotting import figure, output_file, show
+import dataCleanFloods as dcf
 
 #Read flood data
-floodFile ="dallasFloods.csv"
-dateparse = lambda x: pd.datetime.strptime(x, '%m/%d/%Y')
-floods = pd.read_csv(floodFile, parse_dates=['BEGIN_DATE'], date_parser=dateparse)
+#floodFile ="dallasFloods.csv"
+#dateparse = lambda x: pd.datetime.strptime(x, '%m/%d/%Y')
+#floods = pd.read_csv(floodFile, parse_dates=['BEGIN_DATE'], date_parser=dateparse)
 
 #clean flood data
-cleanFloods = floods[['CZ_NAME_STR', 'BEGIN_DATE', 'EVENT_TYPE', 'DAMAGE_PROPERTY_NUM']]
-cleanFloods = cleanFloods.drop_duplicates()
-
-#accessor function
-def getFloods():
-    return cleanFloods
+#cleanFloods = floods[['CZ_NAME_STR', 'BEGIN_DATE', 'EVENT_TYPE', 'DAMAGE_PROPERTY_NUM']]
+#cleanFloods = cleanFloods.drop_duplicates()
 
 #read foreclosure data
 foreclosureFile = "ForeclosuresTransposed.csv"
@@ -32,8 +29,8 @@ p = figure(x_axis_type="datetime", x_axis_label='dates', y_axis_label='number of
 p.line(x=foreclosures['Date'], y=foreclosures['Dallas'], color='green')
 
 #plot floods
-for i in range(len(cleanFloods)):
-    date = cleanFloods.BEGIN_DATE.iloc[i]
+for i in range(len(dcf.cleanedFloods)):
+    date = dcf.cleanedFloods.BEGIN_DATE.iloc[i]
     x=[date,date]
     #locate the y-value of the foreclosures at the time of the flood
     for j in range(len(foreclosures)):

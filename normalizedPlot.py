@@ -3,13 +3,14 @@
 
 import statsmodels.api as sm
 import foreclosuresOverTime as data
+import dataCleanFloods as dcf
 from dateutil.relativedelta import *
 from bokeh.plotting import figure, output_file, show
 import numpy as np
 
 fcl = data.getForeclosures()
-floods = data.getFloods()
-floods = floods.iloc[0:115]
+floods = dcf.cleanedFloods
+#floods = floods.iloc[0:115]
 
 #create plot
 p = figure(x_axis_label='months since flood', y_axis_label='change number of foreclosures since flood')
