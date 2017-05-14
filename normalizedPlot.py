@@ -13,7 +13,7 @@ floods = dcf.cleanedFloods
 #floods = floods.iloc[0:115]
 
 #create plot
-p = figure(x_axis_label='months since flood', y_axis_label='change number of foreclosures since flood')
+p = figure(x_axis_label='Months since flood', y_axis_label='Change in number of foreclosures since flood')
 
 #the number of months to examine
 numMonths = 18

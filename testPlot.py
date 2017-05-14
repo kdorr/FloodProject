@@ -3,7 +3,7 @@ from bokeh.plotting import figure, output_file, show
 import pandas as pd
 import statsmodels.api as sm
 
-plt = figure(x_axis_label='months since flood', y_axis_label='change number of foreclosures since flood')
+plt = figure(x_axis_label='Months since flood', y_axis_label='Predicted change in foreclosures for each flood')
 allXs=normal.allXs
 allYs=normal.allYs
 testXs=allXs[0:18]

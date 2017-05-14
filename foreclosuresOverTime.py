@@ -23,7 +23,7 @@ def getForeclosures():
     return foreclosures
 
 #create plot
-p = figure(x_axis_type="datetime", x_axis_label='dates', y_axis_label='number of foreclosures')
+p = figure(x_axis_type="datetime", x_axis_label='Dates', y_axis_label='Number of foreclosures')
 
 #plot foreclosures
 p.line(x=foreclosures['Date'], y=foreclosures['Dallas'], color='green')
