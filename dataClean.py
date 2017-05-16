@@ -1,10 +1,10 @@
-###################################################
+####################################################
 # dataClean.py
 # Authors: Tim Turner, Kim Orr, and Eric Dubinsky
 # File Creation Date: April 26
 # Upbring Flood Project
-#
-###################################################
+# Transposed the foreclosure data to a better format
+####################################################
 #dataClean.py
 
 import pandas as pd

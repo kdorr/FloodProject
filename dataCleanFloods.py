@@ -3,7 +3,7 @@
 # Authors: Tim Turner, Kim Orr, and Eric Dubinsky
 # File Creation Date: May 5
 # Upbring Flood Project
-#
+# Cleaning the flood data to reduce noise
 ###################################################
 import pandas as pd
 

@@ -1,8 +1,10 @@
 ###################################################
+# regressionPlots.py
 # Authors: Tim Turner, Kim Orr, and Eric Dubinsky
 # File Creation Date: May 3
 # Upbring Flood Project
-#
+# Created a regression for each flood
+# Found the average regression and plotted
 ###################################################
 import normalizedPlot as normal
 from bokeh.plotting import figure, output_file, show

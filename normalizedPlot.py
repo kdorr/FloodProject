@@ -1,11 +1,10 @@
 ###################################################
+# normalizedPlot.py
 # Authors: Tim Turner, Kim Orr, and Eric Dubinsky
 # File Creation Date: April 28
 # Upbring Flood Project
-#
-###################################################
-# normalizedPlot.py
 # Create graph showing change from initial flood point over time
+###################################################
 
 import statsmodels.api as sm
 import foreclosuresOverTime as data
