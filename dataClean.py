@@ -10,7 +10,7 @@
 import pandas as pd
 
 #prep foreclosure data
-fcl = pd.read_csv("TestForeclosures.csv")
+fcl = pd.read_csv("ReducedForeclosures.csv")
 fclTrans = fcl.transpose()
 print(fclTrans.head(n=7))
 outFile = "ForeclosuresTransposed.csv"
