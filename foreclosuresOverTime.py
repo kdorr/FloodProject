@@ -7,30 +7,14 @@
 ####################################################
 
 
-
-#foreclosuresOverTime.py
-
 import pandas as pd
 from bokeh.plotting import figure, output_file, show
 import dataCleanFloods as dcf
 
-#Read flood data
-#floodFile ="dallasFloods.csv"
-#dateparse = lambda x: pd.datetime.strptime(x, '%m/%d/%Y')
-#floods = pd.read_csv(floodFile, parse_dates=['BEGIN_DATE'], date_parser=dateparse)
-
-#clean flood data
-#cleanFloods = floods[['CZ_NAME_STR', 'BEGIN_DATE', 'EVENT_TYPE', 'DAMAGE_PROPERTY_NUM']]
-#cleanFloods = cleanFloods.drop_duplicates()
-
-#read foreclosure data
+#Read foreclosure data
 foreclosureFile = "ForeclosuresTransposed.csv"
 dateparse = lambda x: pd.datetime.strptime(x, '%Y-%m')
 foreclosures = pd.read_csv(foreclosureFile, parse_dates=['Date'], date_parser=dateparse)
-
-#accessor function
-def getForeclosures():
-    return foreclosures
 
 #create plot
 p = figure(x_axis_type="datetime", x_axis_label='Dates', y_axis_label='Number of foreclosures')
