@@ -1,3 +1,9 @@
+###################################################
+# Authors: Tim Turner and Kim Orr
+# File Creation Date: May 3
+# Upbring Flood Project
+#
+###################################################
 import normalizedPlot as normal
 from bokeh.plotting import figure, output_file, show
 import pandas as pd

@@ -1,3 +1,9 @@
+###################################################
+# Authors: Tim Turner and Kim Orr
+# File Creation Date: April 28
+# Upbring Flood Project
+#
+###################################################
 # normalizedPlot.py
 # Create graph showing change from initial flood point over time
 
