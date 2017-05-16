@@ -1,9 +1,10 @@
-###################################################
-# Authors: Tim Turner and Kim Orr
+####################################################
+# Authors: Tim Turner, Kim Orr, and Eric Dubinsky
 # File Creation Date: April 25
 # Upbring Flood Project
-#
-###################################################
+# Prepares data and plots the foreclosures over time
+# Also plots the floods at their corresponding date
+####################################################
 
 
 

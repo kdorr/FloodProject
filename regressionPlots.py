@@ -1,5 +1,5 @@
 ###################################################
-# Authors: Tim Turner and Kim Orr
+# Authors: Tim Turner, Kim Orr, and Eric Dubinsky
 # File Creation Date: May 3
 # Upbring Flood Project
 #

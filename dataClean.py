@@ -1,5 +1,6 @@
 ###################################################
-# Authors: Kim Orr
+# dataClean.py
+# Authors: Tim Turner, Kim Orr, and Eric Dubinsky
 # File Creation Date: April 26
 # Upbring Flood Project
 #
