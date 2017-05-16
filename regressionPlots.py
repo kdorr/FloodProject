@@ -18,7 +18,7 @@ testXs=allXs[0:18]
 testYs=allYs[0:18]
 results=normal.resultsList
 
-#print(results[0].summary()) Will print the regression summary for a single point
+#print(results[0].summary()) #Will print the regression summary for a single point
 regY=[]
 #Plots the regression of each flood 18 months after the event
 for i in range(len(results)):
