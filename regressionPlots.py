@@ -17,9 +17,10 @@ allYs=normal.allYs
 testXs=allXs[0:18]
 testYs=allYs[0:18]
 results=normal.resultsList
-print(results[0].summary())
+
+#print(results[0].summary()) Will print the regression summary for a single point
 regY=[]
-#Plots the regression of each 
+#Plots the regression of each flood 18 months after the event
 for i in range(len(results)):
     getY = lambda res: (results[i].params[0] * res) + results[i].params[1]
     for j in range(len(testXs)):
@@ -27,8 +28,7 @@ for i in range(len(results)):
 plt.circle(allXs, regY)
 
 df = pd.DataFrame({"x" : allXs, "y" : regY})
-#print(df)
-
+#Plots the average regression using the previous regression lines
 finalRegY = []
 yCounter=0
 ySum=0
@@ -47,7 +47,6 @@ lastY=[]
 
 
 plt.line(testXs,lastY)
-print(len(lastY))
 print(regOfReg.summary())
 
 
