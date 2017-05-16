@@ -19,7 +19,7 @@ testYs=allYs[0:18]
 results=normal.resultsList
 print(results[0].summary())
 regY=[]
-#getY = lambda r: -0.0348*r + 0.1834
+#Plots the regression of each 
 for i in range(len(results)):
     getY = lambda res: (results[i].params[0] * res) + results[i].params[1]
     for j in range(len(testXs)):
